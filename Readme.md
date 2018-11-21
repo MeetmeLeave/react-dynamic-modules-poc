@@ -1,0 +1,1 @@
+# Sample react-redux dynamic modules PoC
