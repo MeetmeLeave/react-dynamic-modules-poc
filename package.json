@@ -17,15 +17,18 @@
   "author": "Vlad Martynenko (vladimir.martynenko.work@gmail.com)",
   "license": "ISC",
   "dependencies": {
+    "dynamic-redux-imports": "^2.1.10",
     "prop-types": "^15.6.2",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-redux": "^5.1.1",
+    "react-router-dom": "^4.3.1",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.1.6",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
     "@babel/preset-env": "^7.1.6",
     "@babel/preset-react": "^7.0.0",
     "babel-core": "^7.0.0-bridge.0",
