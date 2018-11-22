@@ -2,20 +2,16 @@ import { BrowserRouter as Router, Link } from "react-router-dom";
 import React from "react";
 import { RouteWithSubRoutes } from "./RouteWithSubRoutes";
 
-export const RouteConfig = ({ routes }) => {
+export const NavigationMenu = ({ routes, navigation }) => {
     return (
         <Router>
             <div>
                 <ul>
-                    <li>
-                        <Link to="/tacos">Tacos</Link>
-                    </li>
-                    <li>
-                        <Link to="/sandwiches">Sandwiches</Link>
-                    </li>
-                    <li>
-                        <Link to="/module">Module</Link>
-                    </li>
+                    {navigation.map((item, i) => {
+                        return (<li key={i}>
+                            <Link to={item.to}>{item.value}</Link>
+                        </li>);
+                    })}
                 </ul>
 
                 {routes.map((route, i) => (

@@ -1,2 +1,2 @@
 export * from './RouteWithSubRoutes';
-export * from './RouteConfig';
+export * from './NavigationMenu';
