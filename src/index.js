@@ -74,43 +74,6 @@ const routes = [
     },
 ];
 
-// wrap <Route> and use this everywhere instead, then when
-// sub routes are added to any route it'll work
-const RouteWithSubRoutes = (route) => {
-    return (
-        <Route
-            path={route.path}
-            render={props => (
-                // pass the sub-routes down to keep nesting
-                <route.component {...props} routes={route.routes}/>
-            )}
-        />
-    );
-}
-
-const RouteConfigExample = () => {
-    return (
-        <Router>
-            <div>
-                <ul>
-                    <li>
-                        <Link to="/tacos">Tacos</Link>
-                    </li>
-                    <li>
-                        <Link to="/sandwiches">Sandwiches</Link>
-                    </li>
-                    <li>
-                        <Link to="/module">Module</Link>
-                    </li>
-                </ul>
-
-                {routes.map((route, i) => (
-                    <RouteWithSubRoutes key={i} {...route} />
-                ))}
-            </div>
-        </Router>
-    );
-}
 const App = () => (
     <Provider store={store}>
         <RouteConfigExample/>
