@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 
-import navigation from './navigation';
+import routing from './routing';
 
 export default combineReducers({
-    navigation
+    navigation: routing
 })

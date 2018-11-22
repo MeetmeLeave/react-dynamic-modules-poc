@@ -1,12 +1,12 @@
 import { ACTIONS } from "../common/magicValues";
 
-const navigation = (state = [], action) => {
+const routing = (state = [], action) => {
     switch (action.type) {
-        case ACTIONS.NAVIGATION_LOADED:
+        case ACTIONS.ROUTING_LOADED:
             return action.navigation;
         default:
             return state;
     }
 };
 
-export default navigation;
+export default routing;

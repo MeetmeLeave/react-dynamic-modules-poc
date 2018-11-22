@@ -8,37 +8,53 @@ import {
     RouteWithSubRoutes
 } from "../../components/Navigation";
 
-const mapStateToProps = (state, ownProps) => ({
-    routes: [
-        {
-            path: "/sandwiches",
-            component: Sandwiches
-        },
-        {
-            path: "/tacos",
-            component: Tacos,
-            routes: [
-                {
-                    path: "/tacos/bus",
-                    component: Bus
-                },
-                {
-                    path: "/tacos/cart",
-                    component: Cart
-                }
-            ]
-        },
-        {
-            path: "/module",
-            component: M
-        },
-    ],
-    navigation: [
-        { to: '/tacos', value: 'Tacos' },
-        { to: '/sandwiches', value: 'Sandwiches' },
-        { to: '/module', value: 'Module' },
-    ]
-});
+const buildNavigation = (routing) => {
+    const result = {
+        routes: [],
+        navigation: []
+    };
+
+    for (let route of routing) {
+
+    }
+
+    return {
+        routes: [
+            {
+                path: "/sandwiches",
+                component: Sandwiches
+            },
+            {
+                path: "/tacos",
+                component: Tacos,
+                routes: [
+                    {
+                        path: "/tacos/bus",
+                        component: Bus
+                    },
+                    {
+                        path: "/tacos/cart",
+                        component: Cart
+                    }
+                ]
+            },
+            {
+                path: "/module",
+                component: M
+            },
+        ],
+        navigation: [
+            { to: '/tacos', value: 'Tacos' },
+            { to: '/sandwiches', value: 'Sandwiches' },
+            { to: '/module', value: 'Module' },
+        ]
+    };
+};
+
+
+const mapStateToProps = (state) => (
+    buildNavigation(state.routing)
+);
 
 export const NavigationMenuContainer = connect(
     mapStateToProps
