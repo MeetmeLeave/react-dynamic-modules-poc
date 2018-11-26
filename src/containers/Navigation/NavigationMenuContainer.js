@@ -7,18 +7,19 @@ import {
 } from "../../components/Navigation";
 
 const buildNavigation = (routing) => {
+    console.log(routing)
     const result = {
         routes: [],
         navigation: []
     };
 
     for (let { url, name, value } of routing) {
-        routes.push({
+        result.routes.push({
             path: url,
-            component: <Module resolve={() => import(`../../modules/${name}`)}/>
+            component: (()=><Module resolve={() => import(`../../modules/${value}`)}/>)
         });
 
-        navigation.push({ to: route, value });
+        result.navigation.push({ to: url, name });
     }
 
     return result;

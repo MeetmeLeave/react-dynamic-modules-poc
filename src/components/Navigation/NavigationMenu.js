@@ -10,7 +10,7 @@ export const NavigationMenu = ({ routes, navigation }) => {
                 <ul>
                     {navigation.map((item, i) => {
                         return (<li key={i}>
-                            <Link to={item.to}>{item.value}</Link>
+                            <Link to={item.to}>{item.name}</Link>
                         </li>);
                     })}
                 </ul>
