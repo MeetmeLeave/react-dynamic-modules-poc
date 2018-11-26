@@ -6,8 +6,8 @@ const app = express();
 
 const routes = [{
     url: '/dashboard',
-    name: 'Dashboard',
-    value: 'dashboard'
+    name: 'dashboard',
+    value: 'Dashboard'
 }];
 
 app.use(function (req, res, next) {
