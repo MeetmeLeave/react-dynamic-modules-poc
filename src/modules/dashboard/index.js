@@ -1,15 +1,8 @@
-import React from 'react';
-import {connect} from 'react-redux';
-import { withRouter } from 'react-router-dom'
-
-const MyComponent =  withRouter(connect()(() => <div>some component</div>));
-
-const myReducers = {
-    noop: (state = {}) => state
-};
+import dashboardReducer from './reducers';
+import { DashboardContainer } from "./containers/DashboardContainer";
 
 export default {
-    view: MyComponent,
-    reducers: myReducers,
-    name: 'myModule',
+    view: DashboardContainer,
+    reducers: dashboardReducer,
+    name: 'dashboard',
 };
