@@ -17,7 +17,7 @@
     "Modules"
   ],
   "author": "Vlad Martynenko (vladimir.martynenko.work@gmail.com)",
-  "license": "ISC",
+  "license": "MIT",
   "peerDependencies": {
     "babel-core": "6.x || ^7.0.0-bridge.0"
   },
