@@ -5,13 +5,25 @@ import { Module } from 'dynamic-redux-imports';
 import {
     NavigationMenu
 } from "../../components/Navigation";
+import { Home } from "../../components";
 
 const modulesCache = {};
+const staticRouting = [
+    {
+        path: '/',
+        exact: true,
+        component: ((props) => <Home />)
+    }
+];
+
+const staticNavigation = [
+    { to: '/', value: 'Home' }
+];
 
 const buildNavigation = (routing) => {
     const result = {
-        routes: [],
-        navigation: []
+        routes: [...staticRouting],
+        navigation: [...staticNavigation]
     };
 
     for (let { url, name, value } of routing) {
