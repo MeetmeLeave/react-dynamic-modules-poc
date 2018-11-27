@@ -30,5 +30,6 @@ export class Home extends Component {
 }
 
 Home.propTypes = {
-    onModuleSelectionChange: PropTypes.func
+    onModuleSelectionChange: PropTypes.func,
+    routing: PropTypes.array
 };

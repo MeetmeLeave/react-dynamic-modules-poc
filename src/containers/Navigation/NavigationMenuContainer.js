@@ -7,18 +7,28 @@ import {
 } from "../../components/Navigation";
 import { HomeContainer } from "../Home";
 
+const HomeNav = () => <HomeContainer/>;
 const modulesCache = {};
 const staticRouting = [
     {
         path: '/',
         exact: true,
-        component: ((props) => <HomeContainer/>)
+        component: HomeNav
     }
 ];
-
 const staticNavigation = [
     { to: '/', value: 'Home' }
 ];
+
+function getDynamicModule(name) {
+    /* eslint-disable react/display-name */
+    const module = modulesCache[name] || ((props) => (
+        <Module {...props}
+                resolve={() => import(`../../modules/${name}`)}/>));
+
+    modulesCache[name] = module;
+    return module;
+}
 
 const buildNavigation = (routing) => {
     const result = {
@@ -28,15 +38,9 @@ const buildNavigation = (routing) => {
 
     for (let { url, name, value, isEnabled } of routing) {
         if (isEnabled) {
-            const module = modulesCache[name] || ((props) => (
-                <Module {...props}
-                        resolve={() => import(`../../modules/${name}`)}/>));
-
-            modulesCache[name] = module;
-
             result.routes.push({
                 path: url,
-                component: module
+                component: getDynamicModule(name)
             });
 
             result.navigation.push({ to: url, value });

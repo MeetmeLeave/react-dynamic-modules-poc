@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Link } from "react-router-dom";
 import React from "react";
+import PropTypes from 'prop-types';
 
 import { RouteWithSubRoutes } from "./RouteWithSubRoutes";
 
@@ -21,4 +22,9 @@ export const NavigationMenu = ({ routes, navigation }) => {
             </div>
         </Router>
     );
+};
+
+NavigationMenu.propTypes = {
+    routes: PropTypes.array,
+    navigation: PropTypes.array,
 };

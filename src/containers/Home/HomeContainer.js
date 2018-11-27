@@ -1,4 +1,3 @@
-import React from "react";
 import { connect } from 'react-redux';
 import { SERVER_URL_ROUTING } from "../../common/magicValues";
 import { updateRouting } from "../../actions";

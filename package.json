@@ -18,9 +18,6 @@
   ],
   "author": "Vlad Martynenko (vladimir.martynenko.work@gmail.com)",
   "license": "MIT",
-  "peerDependencies": {
-    "babel-core": "6.x || ^7.0.0-bridge.0"
-  },
   "dependencies": {
     "body-parser": "^1.18.3",
     "dynamic-redux-imports": "^2.1.10",
