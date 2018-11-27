@@ -14,7 +14,7 @@ export const loadRouting = url => {
     };
 };
 
-export const updateRouting = (url, data) => {
+export const updateRouting = (url, name) => {
     return function (dispatch) {
         return fetch(url, {
             method: "POST",
@@ -25,7 +25,7 @@ export const updateRouting = (url, data) => {
                 "Content-Type": "application/json; charset=utf-8",
             },
             referrer: "no-referrer",
-            body: JSON.stringify(data),
+            body: JSON.stringify({ name }),
         }).then(
             response => response.json().then(
                 result => dispatch(routingLoaded(result.routing))

@@ -5,14 +5,14 @@ import { Module } from 'dynamic-redux-imports';
 import {
     NavigationMenu
 } from "../../components/Navigation";
-import { Home } from "../../components";
+import { HomeContainer } from "../Home";
 
 const modulesCache = {};
 const staticRouting = [
     {
         path: '/',
         exact: true,
-        component: ((props) => <Home />)
+        component: ((props) => <HomeContainer/>)
     }
 ];
 
@@ -26,20 +26,21 @@ const buildNavigation = (routing) => {
         navigation: [...staticNavigation]
     };
 
-    for (let { url, name, value } of routing) {
+    for (let { url, name, value, isEnabled } of routing) {
+        if (isEnabled) {
+            const module = modulesCache[name] || ((props) => (
+                <Module {...props}
+                        resolve={() => import(`../../modules/${name}`)}/>));
 
-        const module = modulesCache[name] || ((props) => (
-            <Module {...props}
-                    resolve={() => import(`../../modules/${name}`)}/>));
+            modulesCache[name] = module;
 
-        modulesCache[name] = module;
+            result.routes.push({
+                path: url,
+                component: module
+            });
 
-        result.routes.push({
-            path: url,
-            component: module
-        });
-
-        result.navigation.push({ to: url, value });
+            result.navigation.push({ to: url, value });
+        }
     }
 
     return result;
